@@ -1,9 +1,58 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "plugins": ["check-file", "n"],
   "rules": {
     "prefer-arrow-callback": ["error"],
     "prefer-template": ["error"],
     "semi": ["error"],
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "n/no-process-env": ["error"],
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "**/*.{ts,tsx}": "KEBAB_CASE"
+      },
+      {
+        "ignoreMiddleExtensions": true
+      }
+    ],
+    "check-file/folder-naming-convention": [
+      "error",
+      {
+        "src/**/!^[.*": "KEBAB_CASE"
+      }
+    ],
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "zones": [
+          {
+            "target": "./src/features/auth",
+            "from": "./src/features",
+            "except": ["./auth"]
+          },
+          {
+            "target": "./src/features/comments",
+            "from": "./src/features",
+            "except": ["./comments"]
+          },
+          {
+            "target": "./src/features/discussions",
+            "from": "./src/features",
+            "except": ["./discussions"]
+          },
+          {
+            "target": "./src/features/teams",
+            "from": "./src/features",
+            "except": ["./teams"]
+          },
+          {
+            "target": "./src/features/users",
+            "from": "./src/features",
+            "except": ["./users"]
+          }
+        ]
+      }
+    ]
   }
 }

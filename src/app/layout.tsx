@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
+import TestComponent from "@/components/TestComponent";
+
 import "./globals.css";
 
 [].forEach((item) => {
@@ -39,6 +41,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <TestComponent />
       </body>
     </html>
   );
