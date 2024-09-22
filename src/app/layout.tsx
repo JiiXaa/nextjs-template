@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import TestComponent from "@/components/TestComponent";
+import TestComponent from "@/components/test-component";
 
 import "./globals.css";
 
